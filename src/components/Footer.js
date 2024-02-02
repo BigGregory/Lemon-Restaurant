@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import foodImg from '../assets/restauranfood.jpg';
+import foodImg from '../assets/restaurant-food.jpg';
 
 const Footer = () => {
   return (
@@ -18,9 +18,40 @@ const Footer = () => {
         </div>
         <div className="contact-links">
           <h4>Contacts</h4>
+          <span>Address</span>
+          <span>Phone number</span>
+          <span>Email</span>
         </div>
         <div className="social-links">
           <h4>Social media links</h4>
+          <Link
+            to="http://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </Link>
+          <Link
+            to="http://www.twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </Link>
+          <Link
+            to="http://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </Link>
+          <Link
+            to="http://www.tiktok.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tiktok
+          </Link>
         </div>
       </div>
     </footer>
