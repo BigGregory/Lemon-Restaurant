@@ -4,8 +4,8 @@ import foodImg from '../assets/restaurant-food.jpg';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <img src={foodImg} alt="" height="310px" />
+    <footer className="footer content-container">
+      <img src={foodImg} alt="image" height="310px" />
       <div className="footer-navigation">
         <div className="doormat-links">
           <h4>Doormat navigation</h4>
