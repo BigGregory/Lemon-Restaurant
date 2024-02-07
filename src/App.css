@@ -13,6 +13,7 @@ h2,
 h3,
 h4 {
   line-height: 1;
+  font-weight: inherit;
 }
 ol,
 ul {
@@ -43,19 +44,35 @@ a:active {
   --text-secondary: #ffffff;
   --bg-primary: #edefee;
   --bg-secondary: #495e57;
+  --bg-tertiary: #dadada;
   --color-accent-primary: #f4ce14;
   --color-accent-secondary: #ee9972;
 }
 
+/* Utility styles */
 .app-container {
   max-width: 1440px;
   margin: 0 auto;
 }
-
-.app-header {
+.flex {
   display: flex;
-  /* justify-content: space-between; */
-  border: 1px solid black;
+}
+
+.button-primary {
+  display: block;
+  font-size: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: none;
+  background-color: var(
+    --color-accent-primary
+  );
+  min-width: 180px;
+}
+
+/* Component styles */
+/* Application header */
+.app-header {
   display: flex;
   align-items: center;
 }
@@ -102,10 +119,12 @@ a:active {
   max-width: 960px;
 }
 
+/* Banner section */
 .banner {
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   padding: 48px 0;
+  margin-bottom: 64px;
 }
 
 .banner-info {
@@ -131,16 +150,6 @@ a:active {
   margin-bottom: 24px;
 }
 
-.table-reserve {
-  display: block;
-  font-size: 16px;
-  padding: 16px 20px;
-  border-radius: 16px;
-  border: none;
-  background-color: var(--color-accent-primary);
-  color: var(--text-secondary);
-}
-
 .banner-img {
   height: 420px;
   width: 330px;
@@ -150,6 +159,73 @@ a:active {
   right: 0;
 }
 
+/* Specials section */
+.specials {
+}
+
+.specials > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.specials h2 {
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.specials-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meal-card {
+  border-radius: 16px;
+  max-width: 290px;
+  font-family: 'Karla', sans-serif;
+  background-color: var(--bg-primary);
+}
+.meal-card img {
+  max-width: 290px;
+  height: 194px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.meal-card-content {
+  padding: 16px;
+}
+
+.meal-card-content header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.meal-card-content header span {
+  color: var(--color-accent-secondary);
+}
+
+.meal-card-content p {
+  margin-bottom: 46px;
+  max-height: 76px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meal-card-content button {
+  background: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Testimonials section */
+
+/* Application footer */
 .footer {
   border: 1px solid grey;
   padding: 32px 0;
@@ -179,4 +255,47 @@ a:active {
 .social-links a {
   text-decoration: none;
   margin-bottom: 6px;
+}
+
+/* Responsive rules */
+@media screen and (max-width: 576px) {
+  .banner-img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: fit-content;
+  }
+
+  .app-container {
+    max-width: 768px;
+  }
+
+  .app-header {
+    padding: 0 12px;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+
+  .banner img {
+    width: 240px;
+    height: auto;
+    top: -10px;
+  }
+
+  .banner {
+    padding: 32px 12px;
+  }
+
+  .specials {
+    padding: 0 12px;
+  }
+
+  .specials-list {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 16px;
+  }
 }

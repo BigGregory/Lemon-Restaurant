@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from './Button';
+
 import foodImg from '../assets/restaurant-food.jpg';
 
 const Banner = () => {
@@ -15,7 +17,7 @@ const Banner = () => {
           nemo consequatur magnam, nulla at repellendus quia odio molestiae et
           fugit.
         </p>
-        <button className="table-reserve">Reserve a Table</button>
+        <Button label="Reserve a Table" />
         <img src={foodImg} className="banner-img" alt="Food image" />
       </div>
     </section>
