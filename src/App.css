@@ -64,12 +64,14 @@ a:active {
   padding: 16px 20px;
   border-radius: 16px;
   border: none;
-  background-color: var(
-    --color-accent-primary
-  );
+  background-color: var(--color-accent-primary);
   min-width: 180px;
 }
 
+.content-container {
+  margin: 0 auto;
+  max-width: 960px;
+}
 /* Component styles */
 /* Application header */
 .app-header {
@@ -112,11 +114,6 @@ a:active {
 }
 .app-navigation ul a:hover::before {
   transform: scaleX(1);
-}
-
-.content-container {
-  margin: 0 auto;
-  max-width: 960px;
 }
 
 /* Banner section */
@@ -224,6 +221,15 @@ a:active {
 }
 
 /* Testimonials section */
+.testimonials {
+  border: 1px solid grey;
+  background-color: var(--bg-tertiary);
+}
+.testimony-card {
+  border: 1px solid grey;
+  padding: 12px 32px;
+  max-width: 210px;
+}
 
 /* Application footer */
 .footer {
