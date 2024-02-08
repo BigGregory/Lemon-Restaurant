@@ -1,39 +1,37 @@
-import pasta from '../assets/pasta.jpg';
-import bread from '../assets/bread.jpg';
-import salad from '../assets/salad.jpg';
+import user1 from '../assets/user1.jpg';
+import user2 from '../assets/user2.jpg';
+import user3 from '../assets/user3.jpg';
+import user4 from '../assets/user4.jpg';
 
 const testimonialsList = [
   {
-    testimonyId: '1',
+    userId: '1',
     userName: 'Greg',
-    meal: 'Pasta',
-    mealRating: '5',
-    mealReview: 'Super delicious meal and great service',
-    mealImg: pasta,
+    userImg: user1,
+    restaurantRating: '5',
+    serviceReview: 'Super delicious meals and great service',
   },
   {
-    testimonyId: '2',
+    userId: '2',
     userName: 'Nata',
-    meal: 'Pasta',
-    mealRating: '4',
-    mealReview: 'Delicious meal and good service, need to be less spicy',
-    mealImg: pasta,
+    restaurantRating: '4',
+    serviceReview:
+      'Delicious meals and good service, food need to be less spicy',
+    userImg: user2,
   },
   {
-    testimonyId: '3',
+    userId: '3',
     userName: 'John',
-    meal: 'Bruchetta',
-    mealRating: '5',
-    mealReview: 'Super delicious meal and great service',
-    mealImg: bread,
+    restaurantRating: '5',
+    serviceReview: 'Super delicious meals and great service',
+    userImg: user3,
   },
   {
-    testimonyId: '4',
+    userId: '4',
     userName: 'Bella',
-    meal: 'Greek Salad',
-    mealRating: '5',
-    mealReview: 'Super delicious meal and great service',
-    mealImg: salad,
+    restaurantRating: '5',
+    serviceReview: 'Super delicious meals and great service',
+    userImg: user4,
   },
 ];
 
@@ -45,20 +43,18 @@ const Testimonials = () => {
         <div className="reviews">
           {testimonialsList.map(
             ({
-              testimonyId,
+              userId,
               userName,
-              meal,
-              mealRating,
-              mealReview,
-              mealImg,
+              restaurantRating,
+              serviceReview,
+              userImg,
             }) => (
               <TestimonyCard
                 userName={userName}
-                meal={meal}
-                mealImg={mealImg}
-                mealRating={mealRating}
-                mealReview={mealReview}
-                key={testimonyId}
+                userImg={userImg}
+                restaurantRating={restaurantRating}
+                serviceReview={serviceReview}
+                key={userId}
               />
             ),
           )}
@@ -68,18 +64,22 @@ const Testimonials = () => {
   );
 };
 
-const TestimonyCard = ({ userName, meal, mealImg, mealRating, mealReview }) => {
+const TestimonyCard = ({
+  userName,
+  userImg,
+  restaurantRating,
+  serviceReview,
+}) => {
   return (
     <div className="testimony-card">
-      <div className="meal-name">{meal}</div>
       <div className="meal-rating">
-        Rating: <span>{mealRating}</span>
+        Rating: <span>{restaurantRating}</span>
       </div>
       <div className="user-meal-container">
-        <img src={mealImg} alt="Meal" />
+        <img src={userImg} alt="Meal" />
         <div className="user">{userName}</div>
       </div>
-      <div className="meal-review">{`"${mealReview}"`}</div>
+      <div className="meal-review">{`"${serviceReview}"`}</div>
     </div>
   );
 };

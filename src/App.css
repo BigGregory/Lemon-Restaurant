@@ -234,7 +234,7 @@ section {
   margin-bottom: 28px;
 }
 .testimonials-info {
-  padding: 32px 0 64px 0;
+  padding: 48px 0 78px 0;
 }
 .reviews {
   display: flex;
@@ -258,6 +258,9 @@ section {
 .meal-rating span {
   color: var(--color-accent-secondary);
 }
+.meal-review {
+  font-style: italic;
+}
 
 
 .testimony-card img {
@@ -267,7 +270,8 @@ section {
 .testimony-card .user-meal-container {
   display: flex;
   column-gap: 12px;
-  align-items: center;
+  align-items: baseline;
+  justify-content:space-between;
   margin-bottom: 16px;
 }
 
