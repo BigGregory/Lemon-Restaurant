@@ -38,6 +38,10 @@ a:active {
   color: var(--text-primary);
 }
 
+section {
+  margin-bottom: 64px;
+}
+
 /* Root variables */
 :root {
   --text-primary: #333333;
@@ -121,7 +125,6 @@ a:active {
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   padding: 48px 0;
-  margin-bottom: 64px;
 }
 
 .banner-info {
@@ -222,18 +225,54 @@ a:active {
 
 /* Testimonials section */
 .testimonials {
-  border: 1px solid grey;
   background-color: var(--bg-tertiary);
 }
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 28px;
+}
+.testimonials-info {
+  padding: 32px 0 64px 0;
+}
+.reviews {
+  display: flex;
+  justify-content: space-between;
+}
 .testimony-card {
-  border: 1px solid grey;
-  padding: 12px 32px;
+  border-radius: 16px;
+  padding: 28px 16px;
   max-width: 210px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+}
+.meal-name {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.meal-rating {
+  margin-bottom: 12px;
+}
+.meal-rating span {
+  color: var(--color-accent-secondary);
+}
+
+
+.testimony-card img {
+  max-width: 84px;
+}
+
+.testimony-card .user-meal-container {
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 /* Application footer */
 .footer {
-  border: 1px solid grey;
   padding: 32px 0;
   display: flex;
   font-family: 'Karla', sans-serif;
