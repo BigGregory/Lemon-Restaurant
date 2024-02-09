@@ -6,7 +6,7 @@ const Nav = () => {
     <nav className="app-navigation">
       <ul>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <a href="#about-section">About</a>
         <Link to="/menu">Menu</Link>
         <Link to="/reservation">Reservations</Link>
         <Link to="/order-online">Order Online</Link>

@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="doormat-links">
             <h4>Doormat navigation</h4>
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link to="about">About</Link>
             <Link to="menu">Menu</Link>
             <Link to="reservation">Reservation</Link>
             <Link to="order-online">Order online</Link>

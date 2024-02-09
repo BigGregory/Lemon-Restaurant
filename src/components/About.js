@@ -3,7 +3,7 @@ import mario from '../assets/mario.jpeg';
 
 const About = () => {
   return (
-    <section className="about content-container">
+    <section className="about content-container" id="about-section">
       <div className="about-content-container">
         <h2>Little Lemon</h2>
         <div>Chicago</div>
