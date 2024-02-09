@@ -41,23 +41,15 @@ const Specials = () => {
         <Button label="Online Menu" />
       </header>
       <div className="specials-list">
-        {specialsData.map(
-          ({
-            productId,
-            img,
-            title,
-            price,
-            description,
-          }) => (
-            <MealCard
-              key={productId}
-              img={img}
-              title={title}
-              price={price}
-              description={description}
-            />
-          )
-        )}
+        {specialsData.map(({ productId, img, title, price, description }) => (
+          <MealCard
+            key={productId}
+            img={img}
+            title={title}
+            price={price}
+            description={description}
+          />
+        ))}
       </div>
     </section>
   );

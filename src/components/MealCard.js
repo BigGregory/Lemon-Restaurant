@@ -1,9 +1,4 @@
-const MealCard = ({
-  img,
-  title,
-  price,
-  description,
-}) => {
+const MealCard = ({ img, title, price, description }) => {
   const orderDeliveryAction = () => {
     console.log(`Order Delivery:
     Meal: ${title}
@@ -21,11 +16,7 @@ const MealCard = ({
           <span>{price}</span>
         </header>
         <p>{description}</p>
-        <button
-          onClick={orderDeliveryAction}
-        >
-          Order Delivery
-        </button>
+        <button onClick={orderDeliveryAction}>Order Delivery</button>
       </div>
     </div>
   );

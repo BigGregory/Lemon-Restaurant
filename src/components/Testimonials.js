@@ -2,18 +2,19 @@ import user1 from '../assets/user1.jpg';
 import user2 from '../assets/user2.jpg';
 import user3 from '../assets/user3.jpg';
 import user4 from '../assets/user4.jpg';
+import FeedbackCard from './FeedbackCard';
 
 const testimonialsList = [
   {
     userId: '1',
-    userName: 'Greg',
+    userName: 'Nata',
     userImg: user1,
     restaurantRating: '5',
     serviceReview: 'Super delicious meals and great service',
   },
   {
     userId: '2',
-    userName: 'Nata',
+    userName: 'Greg',
     restaurantRating: '4',
     serviceReview:
       'Delicious meals and good service, food need to be less spicy',
@@ -21,14 +22,14 @@ const testimonialsList = [
   },
   {
     userId: '3',
-    userName: 'John',
+    userName: 'Bella',
     restaurantRating: '5',
     serviceReview: 'Super delicious meals and great service',
     userImg: user3,
   },
   {
     userId: '4',
-    userName: 'Bella',
+    userName: 'John',
     restaurantRating: '5',
     serviceReview: 'Super delicious meals and great service',
     userImg: user4,
@@ -49,7 +50,7 @@ const Testimonials = () => {
               serviceReview,
               userImg,
             }) => (
-              <TestimonyCard
+              <FeedbackCard
                 userName={userName}
                 userImg={userImg}
                 restaurantRating={restaurantRating}
@@ -61,26 +62,6 @@ const Testimonials = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const TestimonyCard = ({
-  userName,
-  userImg,
-  restaurantRating,
-  serviceReview,
-}) => {
-  return (
-    <div className="testimony-card">
-      <div className="meal-rating">
-        Rating: <span>{restaurantRating}</span>
-      </div>
-      <div className="user-meal-container">
-        <img src={userImg} alt="Meal" />
-        <div className="user">{userName}</div>
-      </div>
-      <div className="meal-review">{`"${serviceReview}"`}</div>
-    </div>
   );
 };
 
