@@ -299,6 +299,7 @@ section {
 .footer-content {
   padding: 32px 0;
   display: flex;
+  align-items: center;
   font-family: 'Karla', sans-serif;
   color: var(--text-secondary);
 }
@@ -336,37 +337,54 @@ section {
   }
 }
 @media screen and (max-width: 768px) {
-  body {
-    width: fit-content;
+  section, section.banner, .footer-content {
+    padding: 32px 12px;
   }
 
   .app-container {
     max-width: 768px;
   }
-
   .app-header {
     padding: 0 12px;
     flex-direction: column;
     margin-bottom: 12px;
   }
-
+  .app-navigation ul {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
   .banner img {
     width: 240px;
     height: auto;
     top: -10px;
   }
 
-  .banner {
-    padding: 32px 12px;
-  }
-
-  .specials {
-    padding: 0 12px;
-  }
-
   .specials-list {
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 16px;
+  }
+
+  .reviews {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 24px;
+  }
+
+  .about {
+    column-gap: 16px;
+  }
+  .about-photo-container img, .footer-content img {
+    height: 220px;
+  }
+  .about-photo-container img.owner-1 {
+    left: 0;
+  }
+
+  .footer-navigation {
+    padding: 24px;
+  }
+  .footer-content img {
+    display: none;
   }
 }
