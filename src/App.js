@@ -12,10 +12,7 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
-        <Header>
-          <Logo />
-          <Nav />
-        </Header>
+        <Header />
         <Main />
         <Footer />
       </BrowserRouter>

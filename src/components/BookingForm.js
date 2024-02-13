@@ -2,6 +2,7 @@ const BookingForm = ({
   reserveTableData,
   setReserveTableData,
   availableTimes,
+  setAvailableTimes,
 }) => {
   const onChange = (e) => {
     setReserveTableData({
@@ -11,6 +12,7 @@ const BookingForm = ({
   };
   const onFormSubmit = (e) => {
     e.preventDefault();
+    console.log(reserveTableData);
   };
 
   return (
@@ -23,7 +25,13 @@ const BookingForm = ({
         type="date"
         id="res-date"
         value={reserveTableData.date}
-        onChange={onChange}
+        onChange={(e) => {
+          onChange(e);
+          setAvailableTimes({
+            type: 'setAvaliableTime',
+            payload: reserveTableData.date,
+          });
+        }}
         name="date"
       />
       <label htmlFor="res-time">Choose time</label>

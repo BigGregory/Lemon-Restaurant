@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './Home';
 import BookingPage from './BookingPage';
 
-const timeForReservation = [
-  '17:00',
-  '18:00',
-  '19:00',
-  '20:00',
-  '21:00',
-  '22:00',
-];
+const initialTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
 const Main = () => {
-  const [availableTimes, setAvailableTimes] = useState([...timeForReservation]);
+  const updateTimes = (state, action) => {
+    switch (action.type) {
+      case 'setAvaliableTime':
+        return [...state];
+      default:
+        return state;
+    }
+  };
+  const initializeTimes = () => [...initialTimes];
+
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+
   const [reserveTableData, setReserveTableData] = useState({
     date: '',
     time: '',
@@ -36,6 +40,7 @@ const Main = () => {
               reserveTableData={reserveTableData}
               setReserveTableData={setReserveTableData}
               availableTimes={availableTimes}
+              setAvailableTimes={dispatch}
             />
           }
         />
