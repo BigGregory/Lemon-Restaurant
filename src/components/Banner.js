@@ -1,10 +1,10 @@
-import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 import foodImg from '../assets/restaurant-food.jpg';
 
 const Banner = () => {
+  const navigateToBookingPage = useNavigate();
   return (
     <section className="banner">
       <div className="banner-info content-container">
@@ -17,7 +17,10 @@ const Banner = () => {
           nemo consequatur magnam, nulla at repellendus quia odio molestiae et
           fugit.
         </p>
-        <Button label="Reserve a Table" />
+        <Button
+          label="Reserve a Table"
+          onClick={() => navigateToBookingPage('/reservation')}
+        />
         <img src={foodImg} className="banner-img" alt="Food image" />
       </div>
     </section>

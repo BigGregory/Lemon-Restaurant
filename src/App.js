@@ -6,6 +6,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import Logo from './components/Logo';
 import Home from './components/Home';
+import BookingPage from './components/BookingPage';
 
 import './App.css';
 
@@ -22,7 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<h1>About</h1>} />
             <Route path="/menu" element={<h1>Menu</h1>} />
-            <Route path="/reservation" element={<h1>Reservations</h1>} />
+            <Route path="/reservation" element={<BookingPage />} />
             <Route path="/order-online" element={<h1>Order Online</h1>} />
             <Route path="/login" element={<h1>Login</h1>} />
           </Routes>
