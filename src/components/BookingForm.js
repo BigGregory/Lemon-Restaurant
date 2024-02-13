@@ -1,33 +1,16 @@
-import { useState } from 'react';
-
-const timeForReservation = [
-  '17:00',
-  '18:00',
-  '19:00',
-  '20:00',
-  '21:00',
-  '22:00',
-];
-
-const BookingForm = () => {
-  const [availableTimes, setAvailableTimes] = useState([...timeForReservation]);
-  const [inputData, setInputData] = useState({
-    date: '',
-    time: '',
-    guests: '',
-    occasion: '',
-  });
-
+const BookingForm = ({
+  reserveTableData,
+  setReserveTableData,
+  availableTimes,
+}) => {
   const onChange = (e) => {
-    setInputData({
-      ...inputData,
+    setReserveTableData({
+      ...reserveTableData,
       [e.target.name]: e.target.value,
     });
   };
-
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(inputData);
   };
 
   return (
@@ -39,7 +22,7 @@ const BookingForm = () => {
       <input
         type="date"
         id="res-date"
-        value={inputData.date}
+        value={reserveTableData.date}
         onChange={onChange}
         name="date"
       />
@@ -48,7 +31,7 @@ const BookingForm = () => {
         id="res-time"
         name="time"
         onChange={onChange}
-        value={inputData.time}
+        value={reserveTableData.time}
       >
         {availableTimes.map((time) => (
           <option key={time}>{time}</option>
@@ -62,14 +45,14 @@ const BookingForm = () => {
         max="10"
         id="guests"
         name="guests"
-        value={inputData.guests}
+        value={reserveTableData.guests}
         onChange={onChange}
       />
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
         name="occasion"
-        value={inputData.occasion}
+        value={reserveTableData.occasion}
         onChange={onChange}
       >
         <option>Birthday</option>
