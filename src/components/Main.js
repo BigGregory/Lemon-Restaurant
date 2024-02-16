@@ -1,38 +1,41 @@
 import React, { useEffect, useReducer } from 'react';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { fetchAPI } from '../ApiMock';
 
 import Home from './Home';
 import BookingPage from './BookingPage';
 
-export const initialTimes = [
-  '17:00',
-  '18:00',
-  '19:00',
-  '20:00',
-  '21:00',
-  '22:00',
-];
-export const initializeTimes = () => [...initialTimes];
+export const initializeTimes = async (selectedDate, dispatch) => {
+  const availableTimes = await fetchAPI(selectedDate);
+  dispatch({
+    type: 'setAvaliableTime',
+    payload: availableTimes,
+  });
+};
 
-export const updateTimes = (state, action) => {
+export const updateTimesReducer = (state, action) => {
   switch (action.type) {
     case 'setAvaliableTime':
-      return [...state];
+      return [...action.payload];
     default:
       return state;
   }
 };
 
 const Main = () => {
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer(updateTimesReducer, []);
 
-  const [reserveTableData, setReserveTableData] = useState({
-    date: '',
+  const [userInputData, setUserInputData] = useState({
+    date: new Date().toISOString().split('T')[0],
     time: '',
     guests: '',
     occasion: '',
   });
+
+  useEffect(() => {
+    initializeTimes(userInputData.date, dispatch).catch(console.error);
+  }, [userInputData.date]);
 
   return (
     <main>
@@ -44,10 +47,9 @@ const Main = () => {
           path="/reservation"
           element={
             <BookingPage
-              reserveTableData={reserveTableData}
-              setReserveTableData={setReserveTableData}
+              userInputData={userInputData}
+              setUserInputData={setUserInputData}
               availableTimes={availableTimes}
-              setAvailableTimes={dispatch}
             />
           }
         />

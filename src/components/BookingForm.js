@@ -1,18 +1,14 @@
-const BookingForm = ({
-  reserveTableData,
-  setReserveTableData,
-  availableTimes,
-  setAvailableTimes,
-}) => {
+const BookingForm = ({ userInputData, setUserInputData, availableTimes }) => {
   const onChange = (e) => {
-    setReserveTableData({
-      ...reserveTableData,
+    setUserInputData({
+      ...userInputData,
       [e.target.name]: e.target.value,
     });
   };
+
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(reserveTableData);
+    console.log(userInputData);
   };
 
   return (
@@ -24,13 +20,9 @@ const BookingForm = ({
       <input
         type="date"
         id="res-date"
-        value={reserveTableData.date}
+        value={userInputData.date}
         onChange={(e) => {
           onChange(e);
-          setAvailableTimes({
-            type: 'setAvaliableTime',
-            payload: reserveTableData.date,
-          });
         }}
         name="date"
       />
@@ -39,11 +31,11 @@ const BookingForm = ({
         id="res-time"
         name="time"
         onChange={onChange}
-        value={reserveTableData.time}
+        value={userInputData.time}
       >
-        {availableTimes.map((time) => (
-          <option key={time}>{time}</option>
-        ))}
+        {availableTimes.length
+          ? availableTimes.map((time) => <option key={time}>{time}</option>)
+          : []}
       </select>
       <label htmlFor="guests">Number of guests</label>
       <input
@@ -53,14 +45,14 @@ const BookingForm = ({
         max="10"
         id="guests"
         name="guests"
-        value={reserveTableData.guests}
+        value={userInputData.guests}
         onChange={onChange}
       />
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
         name="occasion"
-        value={reserveTableData.occasion}
+        value={userInputData.occasion}
         onChange={onChange}
       >
         <option>Birthday</option>
