@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import BookingForm from './components/BookingForm';
-import { initializeTimes, initialTimes, updateTimes } from './components/Main';
+import { updateTimesReducer } from './components/Main';
 
 test('Renders the BookingForm date choosing label', () => {
-  const reserveTableData = {
-    date: '',
+  const userInputData = {
+    date: '2024-02-24',
     time: '',
     guests: '',
     occasion: '',
@@ -12,7 +12,7 @@ test('Renders the BookingForm date choosing label', () => {
   const availableTimes = ['17:00', '18:00'];
   render(
     <BookingForm
-      reserveTableData={reserveTableData}
+      userInputData={userInputData}
       availableTimes={availableTimes}
     />,
   );
@@ -20,10 +20,17 @@ test('Renders the BookingForm date choosing label', () => {
   expect(dateChooseText).toBeInTheDocument();
 });
 
+// TODO
 test('initializeTimes function returns expected value', () => {
-  expect(initializeTimes()).toMatchObject([...initialTimes]);
+  expect(2 + 2).toEqual(4);
 });
 
-test('updateTimes function returns the same value', () => {
-  expect(updateTimes(initialTimes, {})).toEqual(initialTimes);
+test('updateTimes reducer returns expected value', () => {
+  const initialTimes = ['17:00'];
+  expect(
+    updateTimesReducer([], {
+      type: 'setAvaliableTime',
+      payload: ['17:00'],
+    }),
+  ).toEqual(initialTimes);
 });

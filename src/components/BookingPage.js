@@ -1,6 +1,11 @@
 import BookingForm from './BookingForm';
 
-const BookingPage = ({ userInputData, setUserInputData, availableTimes }) => {
+const BookingPage = ({
+  userInputData,
+  setUserInputData,
+  availableTimes,
+  setAvailableTimes,
+}) => {
   return (
     <div className="booking-page">
       <h1>Reserve a Table</h1>
@@ -8,6 +13,7 @@ const BookingPage = ({ userInputData, setUserInputData, availableTimes }) => {
         userInputData={userInputData}
         setUserInputData={setUserInputData}
         availableTimes={availableTimes}
+        setAvailableTimes={setAvailableTimes}
       />
     </div>
   );

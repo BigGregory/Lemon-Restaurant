@@ -35,6 +35,12 @@ const Main = () => {
 
   useEffect(() => {
     initializeTimes(userInputData.date, dispatch).catch(console.error);
+    setUserInputData((state) => {
+      return {
+        ...state,
+        time: '',
+      };
+    });
   }, [userInputData.date]);
 
   return (
@@ -50,6 +56,7 @@ const Main = () => {
               userInputData={userInputData}
               setUserInputData={setUserInputData}
               availableTimes={availableTimes}
+              setAvailableTimes={dispatch}
             />
           }
         />

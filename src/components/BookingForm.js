@@ -1,4 +1,11 @@
-const BookingForm = ({ userInputData, setUserInputData, availableTimes }) => {
+import { submitApi } from '../ApiMock';
+
+const BookingForm = ({
+  userInputData,
+  setUserInputData,
+  availableTimes,
+  setAvailableTimes,
+}) => {
   const onChange = (e) => {
     setUserInputData({
       ...userInputData,
@@ -8,7 +15,18 @@ const BookingForm = ({ userInputData, setUserInputData, availableTimes }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    submitApi(userInputData);
     console.log(userInputData);
+    setUserInputData({
+      date: '',
+      time: '',
+      guests: '',
+      occasion: '',
+    });
+    setAvailableTimes({
+      type: 'setAvaliableTime',
+      payload: [],
+    });
   };
 
   return (
@@ -34,13 +52,15 @@ const BookingForm = ({ userInputData, setUserInputData, availableTimes }) => {
         value={userInputData.time}
       >
         {availableTimes.length
-          ? availableTimes.map((time) => <option key={time}>{time}</option>)
+          ? ['', ...availableTimes].map((time) => (
+              <option key={time}>{time}</option>
+            ))
           : []}
       </select>
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
-        placeholder="1"
+        placeholder="choose from 1-10"
         min="1"
         max="10"
         id="guests"
@@ -55,6 +75,7 @@ const BookingForm = ({ userInputData, setUserInputData, availableTimes }) => {
         value={userInputData.occasion}
         onChange={onChange}
       >
+        <option></option>
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>

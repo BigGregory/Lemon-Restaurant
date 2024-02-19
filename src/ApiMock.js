@@ -25,6 +25,7 @@ export const generateDatesAndTimes = () => {
 };
 const availableTimesByDate = generateDatesAndTimes();
 
+// Fetch list of available times from specific date
 export const fetchAPI = (date) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -37,5 +38,18 @@ export const fetchAPI = (date) => {
   });
 };
 
-// TODO
-export const mockApi = (formData) => {};
+// Submit form data to reserve a table
+export const submitApi = (formData) => {
+  availableTimesByDate[formData.date] = availableTimesByDate[
+    formData.date
+  ].filter((availableTime) => availableTime !== formData.time);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (formData) {
+        resolve(true);
+      } else {
+        reject(new Error('Form submission fails!'));
+      }
+    }, 500);
+  });
+};
