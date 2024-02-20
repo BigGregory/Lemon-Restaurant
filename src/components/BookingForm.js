@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+
+import Button from './Button';
 import { submitApi } from '../ApiMock';
 
 const BookingForm = ({
@@ -6,6 +9,7 @@ const BookingForm = ({
   availableTimes,
   setAvailableTimes,
 }) => {
+  const navigateTo = useNavigate();
   const onChange = (e) => {
     setUserInputData({
       ...userInputData,
@@ -27,6 +31,7 @@ const BookingForm = ({
       type: 'setAvaliableTime',
       payload: [],
     });
+    navigateTo('/confirm-booking');
   };
 
   return (
@@ -85,14 +90,11 @@ const BookingForm = ({
           <option>Other</option>
         </select>
       </div>
-
-      <button
+      <Button
+        label="Make Your Reservation"
         type="submit"
-        className="button-primary"
         disabled={!Object.values(userInputData).every((el) => el !== '')}
-      >
-        Make Your Reservation
-      </button>
+      />
     </form>
   );
 };

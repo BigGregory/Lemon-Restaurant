@@ -4,7 +4,7 @@ import foodImg from '../assets/restaurant-food.jpg';
 
 const Footer = () => {
   return (
-    <footer className="footer app-container">
+    <footer className="footer">
       <div className="footer-content content-container">
         <img src={foodImg} alt="image" height="310px" />
         <div className="footer-navigation">

@@ -5,6 +5,7 @@ import { fetchAPI } from '../ApiMock';
 
 import Home from './Home';
 import BookingPage from './BookingPage';
+import ConfirmedBooking from './ConfirmedBooking';
 
 export const initializeTimes = async (selectedDate, dispatch) => {
   const availableTimes = await fetchAPI(selectedDate);
@@ -47,10 +48,10 @@ const Main = () => {
     <main>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<h1>About</h1>} />
-        <Route path="/menu" element={<h1>Menu</h1>} />
+        <Route path="about" element={<h1>About</h1>} />
+        <Route path="menu" element={<h1>Menu</h1>} />
         <Route
-          path="/reservation"
+          path="reservation"
           element={
             <BookingPage
               userInputData={userInputData}
@@ -60,8 +61,9 @@ const Main = () => {
             />
           }
         />
-        <Route path="/order-online" element={<h1>Order Online</h1>} />
-        <Route path="/login" element={<h1>Login</h1>} />
+        <Route path="order-online" element={<h1>Order Online</h1>} />
+        <Route path="login" element={<h1>Login</h1>} />
+        <Route path="confirm-booking" element={<ConfirmedBooking />} />
       </Routes>
     </main>
   );
