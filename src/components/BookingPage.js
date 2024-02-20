@@ -7,7 +7,7 @@ const BookingPage = ({
   setAvailableTimes,
 }) => {
   return (
-    <div className="booking-page">
+    <div className="booking-page content-container">
       <h1>Reserve a Table</h1>
       <BookingForm
         userInputData={userInputData}

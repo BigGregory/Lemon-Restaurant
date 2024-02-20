@@ -30,56 +30,69 @@ const BookingForm = ({
   };
 
   return (
-    <form
-      style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
-      onSubmit={onFormSubmit}
-    >
-      <label htmlFor="res-date">Choose date</label>
-      <input
-        type="date"
-        id="res-date"
-        value={userInputData.date}
-        onChange={(e) => {
-          onChange(e);
-        }}
-        name="date"
-      />
-      <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
-        name="time"
-        onChange={onChange}
-        value={userInputData.time}
+    <form onSubmit={onFormSubmit} className="booking-form">
+      <div>
+        <label htmlFor="res-date">Choose date</label>
+        <input
+          type="date"
+          id="res-date"
+          value={userInputData.date}
+          onChange={(e) => {
+            onChange(e);
+          }}
+          name="date"
+        />
+      </div>
+      <div>
+        <label htmlFor="res-time">Choose time</label>
+        <select
+          id="res-time"
+          name="time"
+          onChange={onChange}
+          value={userInputData.time}
+        >
+          {availableTimes.length
+            ? ['', ...availableTimes].map((time) => (
+                <option key={time}>{time}</option>
+              ))
+            : []}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="guests">Number of guests</label>
+        <input
+          type="number"
+          placeholder="choose from 1-10"
+          min="1"
+          max="10"
+          id="guests"
+          name="guests"
+          value={userInputData.guests}
+          onChange={onChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="occasion">Occasion</label>
+        <select
+          id="occasion"
+          name="occasion"
+          value={userInputData.occasion}
+          onChange={onChange}
+        >
+          <option></option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <button
+        type="submit"
+        className="button-primary"
+        disabled={!Object.values(userInputData).every((el) => el !== '')}
       >
-        {availableTimes.length
-          ? ['', ...availableTimes].map((time) => (
-              <option key={time}>{time}</option>
-            ))
-          : []}
-      </select>
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        placeholder="choose from 1-10"
-        min="1"
-        max="10"
-        id="guests"
-        name="guests"
-        value={userInputData.guests}
-        onChange={onChange}
-      />
-      <label htmlFor="occasion">Occasion</label>
-      <select
-        id="occasion"
-        name="occasion"
-        value={userInputData.occasion}
-        onChange={onChange}
-      >
-        <option></option>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-      </select>
-      <input type="submit" value="Make Your reservation" />
+        Make Your Reservation
+      </button>
     </form>
   );
 };

@@ -330,6 +330,43 @@ section {
   color: var(--text-secondary);
 }
 
+/* Booking Page */
+.booking-page {
+  margin-bottom: 48px;
+}
+.booking-page h1 {
+  font-size: 64px;
+  margin-bottom: 32px;
+}
+.booking-form {
+  display: grid;
+  max-width: 260px;
+  font-family: 'Karka', sans-serif;
+}
+
+.booking-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;  
+}
+.booking-form label {
+  margin-bottom: 4px;
+}
+.booking-form input, .booking-form select {
+  height: 42px;
+  padding: 8px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.booking-form input[type=number]::placeholder {
+  font-size: 14px;
+}
+.booking-form button[type=submit]:disabled {
+  cursor: not-allowed;
+  background-color: var(--bg-tertiary);
+}
+
+
 /* Responsive rules */
 @media screen and (max-width: 576px) {
   .banner-img {
