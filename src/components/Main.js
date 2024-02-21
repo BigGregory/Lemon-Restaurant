@@ -12,6 +12,7 @@ export const initializeTimes = async (selectedDate, dispatch) => {
     type: 'setAvaliableTime',
     payload: availableTimes,
   });
+  return availableTimes;
 };
 
 export const updateTimesReducer = (state, action) => {

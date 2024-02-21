@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import BookingForm from './components/BookingForm';
-import { updateTimesReducer } from './components/Main';
+import { updateTimesReducer, initializeTimes } from './components/Main';
 
 test('Renders the BookingForm date choosing label', () => {
   const userInputData = {
@@ -20,9 +20,12 @@ test('Renders the BookingForm date choosing label', () => {
   expect(dateChooseText).toBeInTheDocument();
 });
 
-// TODO
-test('initializeTimes function returns expected value', () => {
-  expect(2 + 2).toEqual(4);
+test('initializeTimes function returns expected value', async () => {
+  const mockFn = jest.fn();
+  const currentDate = new Date().toISOString().split('T')[0];
+  const availableTimes = ['18:00', '20:00', '22:00'];
+
+  expect(await initializeTimes(currentDate, mockFn)).toEqual(availableTimes);
 });
 
 test('updateTimes reducer returns expected value', () => {
