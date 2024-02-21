@@ -30,6 +30,8 @@ const BookingForm = ({
             onChange(e);
           }}
           name="date"
+          required
+          min={new Date().toISOString().split('T')[0]}
         />
       </div>
       <div>
@@ -39,6 +41,7 @@ const BookingForm = ({
           name="time"
           onChange={onChange}
           value={userInputData.time}
+          required
         >
           {availableTimes.length
             ? ['', ...availableTimes].map((time) => (
@@ -58,6 +61,7 @@ const BookingForm = ({
           name="guests"
           value={userInputData.guests}
           onChange={onChange}
+          required
         />
       </div>
       <div>
@@ -67,6 +71,7 @@ const BookingForm = ({
           name="occasion"
           value={userInputData.occasion}
           onChange={onChange}
+          required
         >
           <option></option>
           <option>Birthday</option>
