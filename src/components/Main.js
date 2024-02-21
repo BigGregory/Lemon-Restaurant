@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer } from 'react';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { fetchAPI } from '../ApiMock';
+import React, { useState, useEffect, useReducer } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { fetchAPI, submitApi } from '../ApiMock';
 
 import Home from './Home';
 import BookingPage from './BookingPage';
@@ -25,6 +24,7 @@ export const updateTimesReducer = (state, action) => {
 };
 
 const Main = () => {
+  const navigateTo = useNavigate();
   const [availableTimes, dispatch] = useReducer(updateTimesReducer, []);
 
   const [userInputData, setUserInputData] = useState({
@@ -33,6 +33,21 @@ const Main = () => {
     guests: '',
     occasion: '',
   });
+
+  const submitForm = (formData) => {
+    submitApi(formData);
+    setUserInputData({
+      date: '',
+      time: '',
+      guests: '',
+      occasion: '',
+    });
+    dispatch({
+      type: 'setAvaliableTime',
+      payload: [],
+    });
+    navigateTo('/confirm-booking');
+  };
 
   useEffect(() => {
     initializeTimes(userInputData.date, dispatch).catch(console.error);
@@ -57,7 +72,7 @@ const Main = () => {
               userInputData={userInputData}
               setUserInputData={setUserInputData}
               availableTimes={availableTimes}
-              setAvailableTimes={dispatch}
+              submitForm={submitForm}
             />
           }
         />

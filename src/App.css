@@ -368,14 +368,25 @@ section {
 
 /* Confirmed booking Page */
 .confirmed-booking {
-  margin-bottom: 48px;
+  margin: 48px auto;
 }
 .confirmed-banner {
   width: 440px;
   height: 200px;
-  border: 1px solid black;
   margin: 0 auto;
+  padding: 24px;
   background-color: var(--bg-primary);
+  border-radius: 4px;
+  text-align: center;
+}
+.icon-success {
+  width: 64px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.icon-success + h2 {
+  font-size: 32px;
 }
 
 

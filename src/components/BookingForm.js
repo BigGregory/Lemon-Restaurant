@@ -1,15 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-
 import Button from './Button';
-import { submitApi } from '../ApiMock';
 
 const BookingForm = ({
   userInputData,
   setUserInputData,
   availableTimes,
-  setAvailableTimes,
+  submitForm,
 }) => {
-  const navigateTo = useNavigate();
   const onChange = (e) => {
     setUserInputData({
       ...userInputData,
@@ -19,19 +15,7 @@ const BookingForm = ({
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    submitApi(userInputData);
-    console.log(userInputData);
-    setUserInputData({
-      date: '',
-      time: '',
-      guests: '',
-      occasion: '',
-    });
-    setAvailableTimes({
-      type: 'setAvaliableTime',
-      payload: [],
-    });
-    navigateTo('/confirm-booking');
+    submitForm(userInputData);
   };
 
   return (

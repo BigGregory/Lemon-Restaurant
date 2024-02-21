@@ -4,7 +4,7 @@ const BookingPage = ({
   userInputData,
   setUserInputData,
   availableTimes,
-  setAvailableTimes,
+  submitForm,
 }) => {
   return (
     <div className="booking-page content-container">
@@ -13,7 +13,7 @@ const BookingPage = ({
         userInputData={userInputData}
         setUserInputData={setUserInputData}
         availableTimes={availableTimes}
-        setAvailableTimes={setAvailableTimes}
+        submitForm={submitForm}
       />
     </div>
   );
