@@ -6,20 +6,15 @@ export const generateDatesAndTimes = () => {
   for (let i = 0; i <= monthLength; i++) {
     let itemDate = new Date();
     itemDate.setDate(itemDate.getDate() + i);
-    if (i % 2 === 0) {
-      resultDatesAndTimes[itemDate.toISOString().split('T')[0]] = [
-        '18:00',
-        '20:00',
-        '22:00',
-      ];
-    } else {
-      resultDatesAndTimes[itemDate.toISOString().split('T')[0]] = [
-        '17:00',
-        '19:00',
-        '21:00',
-        '23:00',
-      ];
-    }
+    resultDatesAndTimes[itemDate.toISOString().split('T')[0]] = [
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+      '23:00',
+    ];
   }
   return resultDatesAndTimes;
 };

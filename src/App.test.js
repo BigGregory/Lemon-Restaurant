@@ -23,9 +23,9 @@ test('Renders the BookingForm date choosing label', () => {
 test('initializeTimes function returns expected value', async () => {
   const mockFn = jest.fn();
   const currentDate = new Date().toISOString().split('T')[0];
-  const availableTimes = ['18:00', '20:00', '22:00'];
+  const availableTime = '18:00';
 
-  expect(await initializeTimes(currentDate, mockFn)).toEqual(availableTimes);
+  expect(await initializeTimes(currentDate, mockFn)).toContain(availableTime);
 });
 
 test('updateTimes reducer returns expected value', () => {
