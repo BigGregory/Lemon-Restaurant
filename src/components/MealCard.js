@@ -8,7 +8,7 @@ const MealCard = ({ img, title, price, description }) => {
   };
 
   return (
-    <div className="meal-card">
+    <div className="meal-card" role="Meal Card">
       <img src={img} alt={title} />
       <div className="meal-card-content">
         <header>

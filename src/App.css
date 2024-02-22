@@ -347,16 +347,20 @@ section {
 .booking-form div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 28px;  
+  margin-bottom: 36px;  
 }
 .booking-form label {
   margin-bottom: 4px;
+  font-weight: 600;
 }
 .booking-form input, .booking-form select {
   height: 42px;
   padding: 8px;
   border-width: 1px;
   border-radius: 4px;
+}
+.booking-form input:hover, .booking-form select:hover {
+  cursor: pointer;
 }
 .booking-form input[type=number]::placeholder {
   font-size: 14px;
