@@ -62,10 +62,6 @@ section {
 }
 
 /* Utility styles */
-.app-container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
 .content-container {
   margin: 0 auto;
   max-width: 960px;
@@ -84,10 +80,21 @@ section {
 }
 
 /* Component styles */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+main {
+  flex: 1;
+}
 /* Application header */
 .app-header {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .app-navigation {
   flex: 1;
@@ -400,8 +407,11 @@ section {
     display: none;
   }
 }
-@media screen and (max-width: 768px) {
-  section, section.banner, .footer-content {
+@media screen and (max-width: 992px) {
+  section {
+    margin-bottom: 18px;
+  }
+  section, section.banner, .booking-page, .footer-content {
     padding: 32px 12px;
   }
 
@@ -423,6 +433,10 @@ section {
     top: -10px;
   }
 
+  .specials header {
+    flex-direction: column;
+    text-align: center;
+  }
   .specials-list {
     flex-wrap: wrap;
     justify-content: space-around;
@@ -443,6 +457,10 @@ section {
   }
   .about-photo-container img.owner-1 {
     left: 0;
+  }
+
+  .booking-form {
+    max-width: 100%;
   }
 
   .footer-navigation {
